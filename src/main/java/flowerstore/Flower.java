@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 @Getter  @Setter @ToString
 
-public class Flower {
+public class Flower extends Item{
     public int price;
 //    private double price;
     private double sepalength;
@@ -29,6 +29,18 @@ public class Flower {
         this.flowertype = flowertype;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public double getPrice(){
+        return this.price;
+    }
+
+    @Override
+    public String getDescription(){
+        return "Flower of type " + flowertype;
+    }
 }
 
 
