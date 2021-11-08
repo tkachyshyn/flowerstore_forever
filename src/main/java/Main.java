@@ -2,6 +2,9 @@ package flowerstore;
 
 import decorators.PaperDecorator;
 import decorators.RibbonDecorator;
+import order.Order;
+import order.Quickorder;
+import order.Receiver;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,6 +22,13 @@ public class Main {
         item.setPrice(5);
         bucket.addDecorator(item);
         double total = bucket.getPrice();
-        System.out.printf(String.valueOf(total));
+        Order order = new Order();
+        Receiver receiver = new Receiver();
+        order.addUser(receiver);
+        order.notifyUser();
+        order.deliver(1);
+        order.pay(1, total);
+        Quickorder quickorder = new Quickorder();
+        quickorder.quickOrder();
     }
 }
